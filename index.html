@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" ng-app="configmanagerApp">
+<head>
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ConfigManager helps manage user configurations on the applications.">
+    <title>ConfigManager - Configuration Management Software</title>
+
+  	<!-- css -->
+  	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  	<link rel="stylesheet" href="/stylesheets/select.css" />
+  	<link rel="stylesheet" href="/stylesheets/custom.css" />
+  	<link rel="stylesheet" href="/stylesheets/animations.css" />
+	<link rel="stylesheet" href="/stylesheets/mobile-binder.css" />
+	<link rel="stylesheet" href="/stylesheets/mobile-dashboard.css" />
+	<link rel="stylesheet" href="/stylesheets/mobile-menu.css" />
+	<link rel="stylesheet" href="/stylesheets/angular-chart.css" />
+
+	<link href='//fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  	<!--<link rel="stylesheet" href="/stylesheets/configmanager.css" />-->
+  	
+  	<!-- hosted libs -->
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-cookies.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.js"></script>
+	<script src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5369a7b92429a849"></script>
+
+	<!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<!-- local libs -->
+	<script src="/javascripts/bootstrap.min.js"></script>
+	<script src="/javascripts/ui-bootstrap-0.10.0.min.js"></script>
+
+	<!-- ngapp -->
+	<script src="/angular/app.js"></script>
+	<script src="/angular/services.js"></script>
+	<script src="/angular/directives.js"></script>
+	<script src="/angular/controllers.js"></script>
+	<script src="/angular/animations.js"></script>
+	<script src="/angular/filters/filters.js"></script>
+	
+	<script src="/angular/services/config.js"></script>
+	<script src="/angular/services/session.js"></script>
+	<script src="/angular/services/httpInterceptor.js"></script>
+	<script src="/angular/services/modal-service.js"></script>
+	<script src="/angular/services/address.js"></script>
+	<script src="/angular/services/errors.js"></script>
+	<script src="/angular/services/userToken.js"></script>
+	<script src="/angular/services/user.js"></script>
+	<script src="/angular/services/userProfile.js"></script>
+	<script src="/angular/services/configerTabs.js"></script>
+	<script src="/angular/services/configer.js"></script>
+	<script src="/angular/services/validation.js"></script>
+	<script src="/angular/services/subscription.js"></script>
+	<script src="/angular/services/userRole.js"></script>
+	<script src="/angular/services/logo.js"></script>
+	<script src="/angular/services/afterLoginService.js"></script>
+
+	<script src="/angular/directives/applicationHeader.js"></script>
+	<script src="/angular/directives/applicationFooter.js"></script>
+	<script src="/angular/directives/accountMaster.js"></script>
+	<script src="/angular/directives/configerMaster.js"></script>
+	<script src="/angular/directives/tabbedResource.js"></script>
+	<script src="/angular/directives/validations.js"></script>
+	<script src="/angular/directives/dynamic.js"></script>
+	<script src="/angular/directives/addthis.js"></script>
+    <script src="/angular/directives/intercom.js"></script>
+
+	<script src="/angular/controllers/registrations/registrationFormCtrl.js"></script>
+	<script src="/angular/controllers/registrations/registrationConfirmCtrl.js"></script>
+	<script src="/angular/controllers/sessions/loginCtrl.js"></script>
+	<script src="/angular/controllers/userConfiguration/userConfigurationCtrl.js"></script>
+	<script src="/angular/controllers/configers/configerIndexCtrl.js"></script>
+	<script src="/angular/controllers/configers/configerFormCtrl.js"></script>
+	<script src="/angular/controllers/configers/newConfigerCtrl.js"></script>
+	<script src="/angular/controllers/configers/editConfigerCtrl.js"></script>
+	<script src="/angular/controllers/configers/configerCtrl.js"></script>
+	<script src="/angular/controllers/shared/resourceIndex.js"></script>
+	<script src="/angular/controllers/shared/inlineFormCtrl.js"></script>
+	<script src="/angular/controllers/user_profiles/userProfileCtrl.js"></script>
+	<script src="/angular/controllers/user_profiles/userProfileFormCtrl.js"></script>
+	<script src="/angular/controllers/passwords/passwordResetFormCtrl.js"></script>
+	<script src="/angular/controllers/passwords/passwordUpdateFormCtrl.js"></script>
+	<script src="/angular/controllers/subscriptions/subscriptionIndexCtrl.js"></script>
+	<script src="/angular/controllers/subscriptions/subscriptionPaymentCtrl.js"></script>
+	<script src="/angular/controllers/application/modalCtrl.js"></script>
+	
+</head>
+<body>
+
+  <div>
+    <div ng-view></div>
+  </div>
+
+  <script>
+	$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+	  event.preventDefault();
+	  $(this).ekkoLightbox();
+	});
+  </script>
+</body>
+</html>

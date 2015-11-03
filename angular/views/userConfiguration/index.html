@@ -1,0 +1,49 @@
+<div class="configer-control" ng-controller="UserConfigurationCtrl">
+    <configer-master selected-tab="selectedTab">
+        <div class="toolbar-btn-pad configer-options">
+            <div class="nav">
+                <a class="btn btn-primary navbar-btn" href="#/configurations/{{ configuration.id }}/edit"><span class="glyphicon glyphicon-edit"></span>&nbsp;User Configuration for the application</a>
+                <a class="btn btn-primary navbar-btn" href="#/configurations/{{ configuration.id }}/menu1">&nbsp;Menu1</a>
+                <a class="btn btn-primary navbar-btn" href="#/configurations/{{ configuration.id }}/menu2">&nbsp;Menu2</a>
+                <a class="btn btn-primary navbar-btn" href="#/configurations/{{ configuration.id }}/menu3">&nbsp;Menu3</a>
+            </div>
+        </div>
+
+        <div id="configer-main" class="container-fluid">
+
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <input type="text" placeholder="search Config" id="search" class="form-control" data-ng-model="search" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" data-ng-click="addItem()">New Configuration</button>
+                </div>
+                <br>
+                <table class="table table-stripped table-hover">
+                    <tbody>
+                    <tr>
+                        <th>App Name</th>
+                        <th>Property Name</th>
+                        <th>Property Value</th>
+                        <th>Specific to Schema</th>
+                        <th>Specific to Table</th>
+                        <th>Last Update Date</th>
+                        <th>Last Update By</th>
+                    </tr>
+
+                    <!-- You can also use individual items like $item.name or item.genre or any column. -->
+                    <tr data-ng-repeat="item in app_configs | filter:search" data-ng-click="editItem($index)">
+                        <td>{{item.appName}}</td>
+                        <td>{{item.propertyName}}</td>
+                        <td>{{item.propertyValue}}</td>
+                        <td>{{item.specificSchema}}</td>
+                        <td>{{item.specificTable}}</td>
+                        <td>{{item.lastUpdate}}</td>
+                        <td>{{item.lastUpdateBy}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </configer-master>
+</div>

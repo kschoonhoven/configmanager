@@ -1,0 +1,59 @@
+<application-header></application-header>
+
+<div class="mobile-view-select dropdown">
+	<a href="" class="dropdown-toggle" data-toggle="dropdown">
+		<span>Overview</span><b class="caret"></b>
+	</a>
+	<ul class="mobile-view-list dropdown-menu">
+		<li ng-repeat="tab in tabs.list" class="nav-sub {{ tab.statusClass }}">
+			<hr ng-show="tab.id == 'spacer'" />
+			<a href="#/configers/{{ configer.id }}/{{ tab.url }}" ng-show="tab.id != 'spacer'">
+				<span ng-if="tab.icon" class="{{ tab.icon }}">&nbsp;</span>{{tab.name}}
+				<span ng-show="tab.statusClass == 'active'" class="label label-white pull-right" id="item_count">{{resourceCount}}</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div id="main-wrapper" class="container-fluid">
+	<div class="row">
+    	<div class="col-sm-3 col-md-2 sidebar sidebar-upper">
+          	<ul class="nav nav-sidebar">
+				<li ng-repeat="tab in tabs.list" class="nav-sub {{ tab.statusClass }}">
+					<hr ng-show="tab.id == 'spacer'" />
+					<a href="#/configers/{{ configer.id }}/{{ tab.url }}" ng-show="tab.id != 'spacer'">
+						<span ng-if="tab.icon" class="{{ tab.icon }}">&nbsp;</span>{{tab.name}}
+						<span ng-show="tab.statusClass == 'active'" class="label label-white pull-right" id="item_count">{{resourceCount}}</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-sm-3 col-md-2 sidebar sidebar-lower">
+			<div class="text-center">
+				<img class="partner-logo" ng-src="{{configer.logo_url}}" />
+			</div>	
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="navbar navbar-default navbar-fixed-top navbar-breadcrumbs col-sm-offset-3 col-md-offset-2 configer-options" role="navigation">
+				<div class="row-fluid">
+					<div class="pull-left">
+						<span ng-repeat="button in buttons">
+							<a href="" id="{{button.id}}" ng-click="clickToolbarButton(button)" class="btn btn-primary navbar-btn"><span class='{{button.icon}}'></span>&nbsp;{{button.text}}</a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div ng-transclude></div>
+		</div>
+	</div>
+</div>
+
+<div class="mobile-binder-options" role="navigation">
+	<div class="row-fluid">
+		<span ng-repeat="button in buttons">
+			<a href="" id="{{button.id}}" ng-click="clickToolbarButton(button)" class="btn btn-primary navbar-btn"><span class='{{button.icon}}'></span>&nbsp;{{button.text}}</a>
+		</span>
+	</div>
+</div>
+
+<application-footer></application-footer>
